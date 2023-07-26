@@ -1,10 +1,10 @@
 package com.zerobase.communityproject.service;
 
-import com.zerobase.community.domain.entity.Article;
-import com.zerobase.community.domain.entity.Comment;
-import com.zerobase.community.domain.entity.User;
-import com.zerobase.community.repository.JpaArticleRepository;
-import com.zerobase.community.repository.JpaCommentRepository;
+import com.zerobase.communityproject.domain.entity.Article;
+import com.zerobase.communityproject.domain.entity.Comment;
+import com.zerobase.communityproject.domain.entity.User;
+import com.zerobase.communityproject.repository.JpaArticleRepository;
+import com.zerobase.communityproject.repository.JpaCommentRepository;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

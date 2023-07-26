@@ -1,8 +1,8 @@
 package com.zerobase.communityproject.controller;
 
-import com.zerobase.community.domain.entity.Article;
-import com.zerobase.community.domain.entity.User;
-import com.zerobase.community.service.CommentService;
+import com.zerobase.communityproject.domain.entity.Article;
+import com.zerobase.communityproject.domain.entity.User;
+import com.zerobase.communityproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;

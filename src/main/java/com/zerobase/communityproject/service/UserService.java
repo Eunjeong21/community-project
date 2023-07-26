@@ -1,8 +1,8 @@
 package com.zerobase.communityproject.service;
 
-import com.zerobase.community.domain.dto.UserInput;
-import com.zerobase.community.domain.entity.User;
-import com.zerobase.community.repository.JpaUserRepository;
+import com.zerobase.communityproject.domain.dto.UserInput;
+import com.zerobase.communityproject.domain.entity.User;
+import com.zerobase.communityproject.repository.JpaUserRepository;
 import java.time.LocalDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

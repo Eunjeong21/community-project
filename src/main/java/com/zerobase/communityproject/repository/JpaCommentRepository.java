@@ -1,6 +1,6 @@
 package com.zerobase.communityproject.repository;
 
-import com.zerobase.community.domain.entity.Comment;
+import com.zerobase.communityproject.domain.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,6 @@
 package com.zerobase.communityproject.domain.dto;
 
-import com.zerobase.community.domain.entity.User;
+import com.zerobase.communityproject.domain.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,8 +1,8 @@
 package com.zerobase.communityproject.service;
 
-import com.zerobase.community.domain.entity.Article;
-import com.zerobase.community.domain.entity.User;
-import com.zerobase.community.repository.JpaArticleRepository;
+import com.zerobase.communityproject.domain.entity.Article;
+import com.zerobase.communityproject.domain.entity.User;
+import com.zerobase.communityproject.repository.JpaArticleRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.zerobase.communityproject.controller;
 
-import com.zerobase.community.domain.dto.UserInput;
-import com.zerobase.community.service.UserService;
+import com.zerobase.communityproject.domain.dto.UserInput;
+import com.zerobase.communityproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
