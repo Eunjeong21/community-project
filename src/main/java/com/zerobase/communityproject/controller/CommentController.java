@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommentController {
   private final CommentService commentService;
 
-  @PostMapping("/read/{articleNum}/comment")
+  @PostMapping("/create/{articleNum}/comment")
   void createComment(@PathVariable Article articleNum, int commentNum, User id, String content) {
     commentService.createComment(articleNum, commentNum, id, content);
   }
 
-  @PutMapping("/read/article/{commentNum}")
+  @PutMapping("/update/article/{commentNum}")
   void updateComment(@PathVariable int commentNum, Long articleNum, String content) {
     commentService.updateComment(articleNum, commentNum, content);
   }
 
-  @DeleteMapping("/read/article/{commentNum}")
+  @DeleteMapping("/delete/article/{commentNum}")
   void deleteComment(@PathVariable int commentNum) {
     commentService.deleteComment(commentNum);
   }

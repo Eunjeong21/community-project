@@ -26,8 +26,8 @@ public class User {
   private String password;
   private String name;
   private LocalDate birth;
-  @Column(name = "reg_date")
-  private LocalDate regDate;
   private String address1;
   private String address2;
+  @Column(name = "reg_date")
+  private LocalDate regDate;
 }

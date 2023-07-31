@@ -3,9 +3,10 @@ package com.zerobase.communityproject.controller;
 import com.zerobase.communityproject.domain.dto.UserInput;
 import com.zerobase.communityproject.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
@@ -15,17 +16,19 @@ public class UserController {
 
   @GetMapping("/user/register")
   public String register() {
-    return "";
+    return "/user-register";
   }
 
   @PostMapping("/user/register")
-  void registerSubmit(@RequestBody UserInput userInput) {
-    userService.createAccount(userInput);
+  public String registerSubmit(Model model, UserInput userInput) {
+    boolean result = userService.createAccount(userInput);
+    model.addAttribute("result", result);
+    return "/user-register-complete";
   }
 
-  @GetMapping("/user/login")
+  @RequestMapping("/user/login")
   public String login() {
-    return "";
+    return "/login";
   }
 
 }
