@@ -1,42 +1,17 @@
 package com.zerobase.communityproject.service;
 
+import com.zerobase.communityproject.domain.dto.SearchParameter;
 import com.zerobase.communityproject.domain.entity.Article;
-import com.zerobase.communityproject.domain.entity.User;
-import com.zerobase.communityproject.repository.JpaArticleRepository;
-import java.time.LocalDateTime;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
-@Service
-public class ArticleService {
-  private final JpaArticleRepository articleRepository;
-
-  public void createArticle(Long articleNum, User id, String title, String content) {
-    Article newArticle = Article.builder()
-        .articleNum(articleNum)
-        .id(id)
-        .title(title)
-        .content(content)
-        .regDate(LocalDateTime.now())
-        .build();
-    articleRepository.save(newArticle);
-  }
-
-  public List<Article> readArticle(Long articleNum) {
-    return articleRepository.findAllByArticleNum(articleNum);
-  }
-
-  public void updateArticle(Long articleNum, String title, String content) {
-    Article renewArticle = articleRepository.findFirstByArticleNum(articleNum);
-    renewArticle.setTitle(title);
-    renewArticle.setContent(content);
-    renewArticle.setUpdateDate(LocalDateTime.now());
-    articleRepository.save(renewArticle);
-  }
-
-  public void deleteArticle(Long articleNum) {
-    articleRepository.deleteArticleByArticleNum(articleNum);
-  }
+public interface ArticleService {
+  List<Article> articleList();
+  void createArticle();
+  List<Article> readArticle();
+  void updateArticle();
+  void deleteArticle();
+  List<Article> searchTitle(SearchParameter searchParameter);
+  List<Article> searchContent(SearchParameter searchParameter);
+  List<Article> searchId(SearchParameter searchParameter);
+  List<Article> searchAll(SearchParameter searchParameter);
 }

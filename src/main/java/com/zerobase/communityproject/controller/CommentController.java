@@ -2,7 +2,7 @@ package com.zerobase.communityproject.controller;
 
 import com.zerobase.communityproject.domain.entity.Article;
 import com.zerobase.communityproject.domain.entity.User;
-import com.zerobase.communityproject.service.CommentService;
+import com.zerobase.communityproject.service.impl.CommentServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 public class CommentController {
-  private final CommentService commentService;
+  private final CommentServiceImpl commentService;
 
   @PostMapping("/create/{articleNum}/comment")
   void createComment(@PathVariable Article articleNum, int commentNum, User id, String content) {
