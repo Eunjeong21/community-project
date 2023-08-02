@@ -74,5 +74,4 @@ public class ArticleController {
     model.addAttribute("searchAllList", searchAllList);
     return "/article-list";
   }
-
 }

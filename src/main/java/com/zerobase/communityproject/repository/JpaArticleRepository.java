@@ -14,7 +14,7 @@ public interface JpaArticleRepository extends JpaRepository<Article, Integer> {
   List<Article> findByTitleContaining(SearchParameter searchParameter);
   List<Article> findByContentContaining(SearchParameter searchParameter);
   List<Article> findByIdContaining(SearchParameter searchParameter);
-  List<Article> findByAllContaining(SearchParameter searchParameter);
+  List<Article> findByTitleOrContentOrIdContaining(SearchParameter searchParameter);
 
 
   @Transactional

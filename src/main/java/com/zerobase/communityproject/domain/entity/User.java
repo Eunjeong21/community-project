@@ -30,4 +30,5 @@ public class User {
   private String address2;
   @Column(name = "reg_date")
   private LocalDate regDate;
+  // test
 }
