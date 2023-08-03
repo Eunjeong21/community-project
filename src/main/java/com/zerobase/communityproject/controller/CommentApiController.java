@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-public class CommentController {
+public class CommentApiController {
   private final CommentServiceImpl commentService;
 
   @PostMapping("/create/{articleNum}/comment")

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
-public class ArticleServiceImpl extends ArticleService {
+public class ArticleServiceImpl implements ArticleService {
   private final JpaArticleRepository articleRepository;
 
   @Override
@@ -22,27 +22,23 @@ public class ArticleServiceImpl extends ArticleService {
   }
 
   @Override
-  public void createArticle(Long articleNum, User id, String title, String content) {
-    Article newArticle = Article.builder()
-        .articleNum(articleNum)
-        .id(id)
-        .title(title)
-        .content(content)
-        .regDate(LocalDateTime.now())
-        .build();
-    articleRepository.save(newArticle);
+  @Transactional
+  public void createArticle(Article article, User user) {
+    article.setId(user);
+    articleRepository.save(article);
   }
 
   @Override
-  public List<Article> readArticle(Long articleNum) {
-    return articleRepository.findAllByArticleNum(articleNum);
+  @Transactional(readOnly = true)
+  public Article readArticle(Long articleNum) {
+    return articleRepository.findFirstByArticleNum(articleNum);
   }
 
   @Override
-  public void updateArticle(Long articleNum, String title, String content) {
+  public void updateArticle(Long articleNum, Article article) {
     Article renewArticle = articleRepository.findFirstByArticleNum(articleNum);
-    renewArticle.setTitle(title);
-    renewArticle.setContent(content);
+    renewArticle.setTitle(article.getTitle());
+    renewArticle.setContent(article.getContent());
     renewArticle.setUpdateDate(LocalDateTime.now());
     articleRepository.save(renewArticle);
   }
@@ -55,28 +51,24 @@ public class ArticleServiceImpl extends ArticleService {
   @Override
   @Transactional
   public List<Article> searchTitle(SearchParameter searchParameter) {
-    List<Article> searchTitleList = articleRepository.findByTitleContaining(searchParameter);
-    return searchTitleList;
+    return articleRepository.findByTitleContaining(searchParameter);
   }
 
   @Override
   @Transactional
   public List<Article> searchContent(SearchParameter searchParameter) {
-    List<Article> searchContentList = articleRepository.findByContentContaining(searchParameter);
-    return searchContentList;
+    return articleRepository.findByContentContaining(searchParameter);
   }
 
   @Override
   @Transactional
   public List<Article> searchId(SearchParameter searchParameter) {
-    List<Article> searchIdList = articleRepository.findByIdContaining(searchParameter);
-    return searchIdList;
+    return articleRepository.findByIdContaining(searchParameter);
   }
 
   @Override
   @Transactional
   public List<Article> searchAll(SearchParameter searchParameter) {
-    List<Article> searchAllList = articleRepository.findByTitleOrContentOrIdContaining(searchParameter);
-    return searchAllList;
+    return articleRepository.findByTitleOrContentOrIdContaining(searchParameter);
   }
 }

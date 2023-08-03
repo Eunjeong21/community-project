@@ -36,5 +36,5 @@ public class Article {
 
   @ManyToOne
   @JoinColumn(name = "id")
-  User id;
+  private User id;
 }
