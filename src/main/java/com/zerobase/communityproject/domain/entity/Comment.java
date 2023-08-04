@@ -29,9 +29,9 @@ public class Comment {
   @Column(name = "reg_date")
   private LocalDateTime regDate;
   @Column(name = "update_date")
-  private LocalDateTime updateDate;
+  private LocalDateTime updateDatetime;
   @Column(name = "delete_date")
-  private LocalDateTime deleteDate;
+  private LocalDateTime deleteDatetime;
 
   @ManyToOne
   @JoinColumn(name = "id")

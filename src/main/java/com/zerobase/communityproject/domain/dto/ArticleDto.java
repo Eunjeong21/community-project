@@ -1,15 +1,12 @@
 package com.zerobase.communityproject.domain.dto;
 
-import com.zerobase.communityproject.domain.entity.Article;
-import com.zerobase.communityproject.domain.entity.User;
 import java.time.LocalDateTime;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class ArticleInfo {
+public class ArticleDto {
   private Long articleNum;
   private String id;
   private String title;

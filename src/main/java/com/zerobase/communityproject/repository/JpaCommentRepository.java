@@ -10,5 +10,4 @@ public interface JpaCommentRepository extends JpaRepository<Comment, Integer> {
   Comment findByCommentNum(int commentNum);
   @Transactional
   void deleteCommentByCommentNum(int CommentNum);
-
 }

@@ -1,7 +1,7 @@
 package com.zerobase.communityproject.controller;
 
-import com.zerobase.communityproject.domain.entity.Article;
-import com.zerobase.communityproject.domain.entity.User;
+import com.zerobase.communityproject.domain.dto.CommentDto;
+import com.zerobase.communityproject.domain.dto.CommentUpdateDto;
 import com.zerobase.communityproject.service.impl.CommentServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,17 +16,20 @@ public class CommentApiController {
   private final CommentServiceImpl commentService;
 
   @PostMapping("/create/{articleNum}/comment")
-  void createComment(@PathVariable Article articleNum, int commentNum, User id, String content) {
-    commentService.createComment(articleNum, commentNum, id, content);
+  public String createComment(CommentDto commentDto) {
+    commentService.createComment(commentDto);
+    return "redirect:/article-detail";
   }
 
   @PutMapping("/update/article/{commentNum}")
-  void updateComment(@PathVariable int commentNum, Long articleNum, String content) {
-    commentService.updateComment(articleNum, commentNum, content);
+  public String updateComment(CommentUpdateDto commentUpdateDto) {
+    commentService.updateComment(commentUpdateDto);
+    return "redirect:/article-detail";
   }
 
   @DeleteMapping("/delete/article/{commentNum}")
-  void deleteComment(@PathVariable int commentNum) {
+  public String deleteComment(@PathVariable int commentNum) {
     commentService.deleteComment(commentNum);
+    return "redirect:/article-detail";
   }
 }
