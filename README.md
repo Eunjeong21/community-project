@@ -4,7 +4,9 @@
 - 커뮤니티 프로젝트
 
 ## ERD
-![community.png](..%2F..%2F..%2F..%2F..%2FDownloads%2Fcommunity.png)
+![community](https://github.com/Eunjeong21/community-project/assets/126832443/2eb07710-290c-47c3-ac74-7170cc8a2ae8)
+
+
 
 ## 사용 기술 스택
 - SpringBoot
